@@ -1,0 +1,60 @@
+#include<iostream.h>
+#include<conio.h>
+
+class rect
+{
+
+int l,b;
+public:
+rect()
+{
+	l=1;b=1;
+}
+
+void setvalue()
+{
+cin>>l>>b;
+}
+
+void display()
+{
+cout<<l<<" "<<b<<endl;
+}
+
+void operator++()
+{
+	l++;
+	b++;
+}
+
+void operator--()
+{
+	l--;
+	b--;
+}
+};
+
+
+void main()
+{
+clrscr();
+int n;
+rect r;
+r.setvalue();
+cout<<"\n---MENU---\n1.Add 1 to l,b \n2.Subtract 1 from l,b\n";
+cout<<"Enter choice"<<endl;
+cin>>n;
+switch(n)
+{
+case 1: r++;
+	break;
+
+case 2:r--;
+	break;
+
+default:break;
+}
+
+r.display();
+getch();
+}

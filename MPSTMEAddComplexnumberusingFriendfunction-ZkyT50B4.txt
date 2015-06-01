@@ -1,0 +1,29 @@
+#include<iostream.h>
+#include<conio.h>
+
+class complex
+{
+int real,img;
+public:
+complex(int x,int y)
+{
+	real=x;
+	img=y;
+	cout<<real<<" + i"<<img<<endl;
+}
+friend void add(complex,complex);
+};
+
+void add(complex q,complex w)
+{
+	int real=q.real+w.real;
+	int img=q.img+w.img;
+	cout<<real<<" + i"<<img<<endl;
+}
+void main()
+{
+clrscr();
+complex a(9,1),b(1,2);
+add(a,b);
+getch();
+}

@@ -1,0 +1,26 @@
+#include<iostream.h>
+#include<conio.h>
+
+
+class square
+{
+int x;
+public:
+void set_value(int b)
+{x=b; }
+friend void find_square(square);
+};
+
+
+void find_square(square a)
+{
+  cout<<a.x*a.x<<endl ;
+}
+void main()
+{
+square s;
+clrscr();
+s.set_value(5);
+find_square(s);
+getch();
+}

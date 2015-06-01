@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+class B
+{
+    public:
+       void display()
+         { cout<<"Content of base class.\n"; }
+};
+
+class D : public B
+{
+    public:
+       void display()
+         { cout<<"Content of derived class.\n"; }
+};
+
+int main()
+{
+    B *b;
+    D d;
+    b->display();
+
+    b = &d;    /* Address of object d in pointer variable */
+    b->display();
+    return 0;
+}
+Note: An object(either normal or pointer) of derived class is type compatible with pointer to base class. So, b = &d; is allowed in above program.
+
+Output
+
+Content of base class.
+Content of base class.
+In above program, even if the object of derived class d is put in pointer to base class, display( ) of the base class is executed( member function of the class that matches the type of pointer ).
+
+Virtual Functions
+
+If you want to execute the member function of derived class then, you can declare display( ) in the base class virtual which makes that function existing in appearance only but, you cant call that function. In order to make a function virtual, you have to add keyword virtual in front of a function.
+
+/* Example to demonstrate the working of virtual function in C++ programming. */
+
+#include <iostream>
+using namespace std;
+class B
+{
+    public:
+     virtual void display()      /* Virtual function */
+         { cout<<"Content of base class.\n"; }
+};
+
+class D1 : public B
+{
+    public:
+       void display()
+         { cout<<"Content of first derived class.\n"; }
+};
+
+class D2 : public B
+{
+    public:
+       void display()
+         { cout<<"Content of second derived class.\n"; }
+};
+
+int main()
+{
+    B *b;
+    D1 d1;
+    D2 d2;
+
+/* b->display();  // You cannot use this code here because the function of base class is virtual. */
+
+    b = &d1;
+    b->display();   /* calls display() of class derived D1 */
+    b = &d2;           
+    b->display();   /* calls display() of class derived D2 */
+    return 0;
+}
+Output
+
+Content of first derived class.
+Content of second derived class.
+After the function of base class is made virtual, code b->display( ) will call the display( ) of the derived class depending upon the content of pointer.

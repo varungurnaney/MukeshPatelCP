@@ -1,0 +1,46 @@
+#include<iostream.h>
+#include<conio.h>
+class student
+{
+int x,y,balance;
+char name[10],acctype[10];
+public:
+void info ();
+void display();
+void deposit();
+friend int add(student,student);
+};
+void student::info()
+{
+cout<<"enter the names of the account holder,account type,bank balance"<<endl;
+cin>>name>>acctype>>x;
+}
+void student:: display()
+{
+cout<<"account holder: "<<name<<endl<<"account type "<<acctype<<endl<<"balance"<<x<<endl;
+}
+void student:: deposit()
+{
+cout<<"enter the amount to be deposited"<<endl;
+cin>>y;
+balance=x+y;
+cout<<"new balance: "<<balance<<endl;
+}
+int add(student t,student y)
+{
+int e=t.balance+y.balance;
+return e;
+}
+void main()
+{
+clrscr();
+student a,b;
+a.info();
+a.display();
+a.deposit();
+b.info();
+b.display();
+b.deposit();
+cout<<add(a,b)<<endl;
+getch();
+}

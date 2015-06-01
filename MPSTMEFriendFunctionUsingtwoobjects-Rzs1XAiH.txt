@@ -1,0 +1,30 @@
+#include<iostream.h>
+#include<conio.h>
+
+class rect
+{
+int length, breadth;
+public:
+void set_value();
+friend void addareas(rect,rect);
+};
+
+void rect:: set_value()
+{
+cin>>length>>breadth;
+}
+void addareas(rect x, rect y)
+{
+ cout<<(x.length*x.breadth)*(y.length*y.breadth)<<endl;
+}
+
+void main()
+{
+clrscr();
+ rect abcd, pqrs;
+ abcd.set_value();
+ pqrs.set_value();
+ addareas(abcd,pqrs);
+
+getch();
+}

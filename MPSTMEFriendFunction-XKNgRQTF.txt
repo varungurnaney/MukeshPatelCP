@@ -1,0 +1,37 @@
+#include<iostream.h>
+#include<conio.h>
+class rect
+{
+int length,breadth;
+public:
+friend void getarea(rect);
+void set_values(int l,int b)
+{
+    length=l;
+    breadth=b;
+}
+
+void getperi(rect);
+};
+
+void getarea(rect x)
+{
+ cout<<x.length*x.breadth<<endl;
+}
+
+void rect::getperi(rect x)
+{
+ cout<<(2*x.length)+(2*x.breadth)<<endl;
+}
+
+void main()
+{
+clrscr();
+rect a;
+int l,b;
+cin>>l>>b;
+a.set_values(l,b);
+getarea(a);
+a.getperi(a);
+getch();
+}
